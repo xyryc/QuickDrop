@@ -12,11 +12,15 @@ import {
 } from "@/components/ui/popover";
 import { ModeToggle } from "./ModeToggle";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { authApi, useLogoutMutation, useUserInfoQuery } from "@/redux/features/auth/auth.api";
+import {
+  authApi,
+  useLogoutMutation,
+  useUserInfoQuery,
+} from "@/redux/features/auth/auth.api";
 import { useAppDispatch } from "@/redux/hook";
 import { role } from "@/constants/role";
 import { Menu, X } from "lucide-react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import { useState } from "react";
 
 const navigationLinks = [
@@ -63,7 +67,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-white/70 via-gray-50/80 to-blue-50/80 dark:from-gray-950/80 dark:to-blue-950/90 backdrop-blur-md shadow-sm px-2 md:px-6">
+    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-white/70 via-gray-50/80 to-green-50/80 dark:from-gray-950/80 dark:to-green-950/90 backdrop-blur-md shadow-sm px-2 md:px-6">
       <div className="container mx-auto flex h-16 items-center justify-between gap-4">
         {/* Logo & navigation */}
         <div className="flex items-center gap-4">
@@ -76,8 +80,16 @@ export default function Navbar() {
                 size="icon"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                <Menu className={`h-6 w-6 ${mobileMenuOpen ? "hidden" : "block"} transition-all`} />
-                <X className={`h-6 w-6 ${mobileMenuOpen ? "block" : "hidden"} transition-all`} />
+                <Menu
+                  className={`h-6 w-6 ${
+                    mobileMenuOpen ? "hidden" : "block"
+                  } transition-all`}
+                />
+                <X
+                  className={`h-6 w-6 ${
+                    mobileMenuOpen ? "block" : "hidden"
+                  } transition-all`}
+                />
               </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-[200px] p-0 md:hidden">
@@ -112,7 +124,12 @@ export default function Navbar() {
                   </>
                 ) : (
                   <>
-                    <Button asChild variant="ghost" size="sm" className="w-full">
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="w-full"
+                    >
                       <Link to="/login">Sign In</Link>
                     </Button>
                     <Button asChild size="sm" className="w-full">
@@ -125,13 +142,16 @@ export default function Navbar() {
           </Popover>
           <Link to={"/"} className="flex items-center gap-2">
             {/* Modern logo style */}
-            <span className="rounded-full bg-gradient-to-br from-orange-400 via-yellow-300 to-blue-400 p-1">
+            <span className="rounded-full bg-gradient-to-br from-orange-400 via-yellow-300 to-green-400 p-1">
               <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
-                <path d="M30 28V12C30 10.8954 29.1046 10 28 10H27.8994C27.369 10 26.8604 10.2109 26.4854 10.5859L10.5859 26.4854C10.2109 26.8604 10 27.369 10 27.8994V40H0V27.8994C2.15312e-05 24.7168 1.26423 21.6645 3.51465 19.4141L19.4141 3.51465C21.6645 1.26423 24.7168 2.1373e-05 27.8994 0H28C34.6274 0 40 5.37258 40 12V28C40 34.6274 34.6274 40 28 40H14V30H28C29.1046 30 30 29.1046 30 28Z M0 0H17L7 10H0V0Z" fill="#FF4D00"></path>
+                <path
+                  d="M30 28V12C30 10.8954 29.1046 10 28 10H27.8994C27.369 10 26.8604 10.2109 26.4854 10.5859L10.5859 26.4854C10.2109 26.8604 10 27.369 10 27.8994V40H0V27.8994C2.15312e-05 24.7168 1.26423 21.6645 3.51465 19.4141L19.4141 3.51465C21.6645 1.26423 24.7168 2.1373e-05 27.8994 0H28C34.6274 0 40 5.37258 40 12V28C40 34.6274 34.6274 40 28 40H14V30H28C29.1046 30 30 29.1046 30 28Z M0 0H17L7 10H0V0Z"
+                  fill="#FF4D00"
+                ></path>
               </svg>
             </span>
-            <span className="font-bold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent dark:from-blue-300 dark:to-blue-500">
-              Logisti Core
+            <span className="font-bold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-green-700 to-green-400 bg-clip-text text-transparent dark:from-blue-300 dark:to-green-500">
+              QuickDrop
             </span>
           </Link>
           {/* Desktop navigation */}

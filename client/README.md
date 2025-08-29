@@ -1,15 +1,5 @@
 # QuickDrop 🚚
 
-[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?logo=mongodb&logoColor=white&style=for-the-badge)](https://mongodb.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white&style=for-the-badge)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)](https://tailwindcss.com/)
-[![Shadcn UI](https://img.shields.io/badge/Shadcn_UI-111827?logo=react&logoColor=white&style=for-the-badge)](https://ui.shadcn.com/)
-[![Live Demo](https://img.shields.io/badge/Demo-LIVE-green?style=for-the-badge)](https://logisti-core.surge.sh/)
-
----
-
 ## 📦 Project Overview
 
 **QuickDrop** is a modern and reliable **Parcel Delivery System** built to streamline the entire delivery lifecycle — from **parcel booking and tracking** to **final delivery confirmation**.
@@ -20,7 +10,7 @@ It provides a **cohesive solution** for three main user roles:
 - **📥 Receiver:** View incoming parcels, confirm deliveries, and track package statuses.
 - **🛠️ Admin:** Manage users and parcels, update statuses, and monitor all operations.
 
-Logisti Core ensures **efficiency, scalability, and user-friendliness** with its robust backend and fully responsive frontend.
+QuickDrop ensures **efficiency, scalability, and user-friendliness** with its robust backend and fully responsive frontend.
 
 ---
 
@@ -89,7 +79,7 @@ npm run dev
 
 ## 🌍 Live Demo
 
-🔗 [Logisti Core Live]()
+🔗 [QuickDrop Live]()
 
 ---
 
