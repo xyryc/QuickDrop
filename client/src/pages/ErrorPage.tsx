@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AlertTriangle } from "lucide-react";
@@ -20,10 +26,10 @@ function ErrorPage() {
     errorMessage = error.statusText;
   } else if (error instanceof Error) {
     errorMessage = error.message;
-  } else if (typeof error === 'string') {
+  } else if (typeof error === "string") {
     errorMessage = error;
   } else {
-    errorMessage = 'An unknown error occurred';
+    errorMessage = "An unknown error occurred";
   }
 
   return (
@@ -43,7 +49,9 @@ function ErrorPage() {
             Oops!
           </CardTitle>
           <CardDescription className="text-xl text-[#FFB877] mt-2 font-semibold">
-            {isRouteErrorResponse(error) ? error.status : "Something went wrong."}
+            {isRouteErrorResponse(error)
+              ? error.status
+              : "Something went wrong."}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -51,12 +59,11 @@ function ErrorPage() {
             {errorMessage}
           </p>
           <p className="text-sm text-[#FF771A] dark:text-[#FFB877] px-2">
-            The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.
+            The page you're looking for might have been removed, had its name
+            changed, or is temporarily unavailable.
           </p>
           <Link to="/" tabIndex={-1}>
-            <Button
-              className="mt-6 w-full font-bold text-white bg-gradient-to-r from-[#FF771A] via-[#FFB877] to-[#FFE2C6] hover:from-[#FFE2C6] hover:via-[#FF771A] hover:to-[#FFB877] rounded-full shadow-lg transition-all duration-300 text-lg py-5"
-            >
+            <Button className="mt-6 w-full font-bold text-white bg-gradient-to-r from-[#FF771A] via-[#FFB877] to-[#FFE2C6] from-[#FFE2C6] via-[#FF771A] to-[#FFB877] rounded-full shadow-lg transition-all duration-300 text-lg py-5">
               Go Back to Home
             </Button>
           </Link>

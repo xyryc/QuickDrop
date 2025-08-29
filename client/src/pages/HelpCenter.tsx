@@ -36,16 +36,17 @@ export default function HelpCenter() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-orange-50 via-white to-orange-100 dark:from-gray-900 dark:to-orange-900 py-8 px-2">
       <div className="w-full md:w-10/12 mx-auto">
-        <Card className="shadow-md border-0 rounded-2xl bg-gradient-to-r from-orange-100 to-blue-50 dark:from-gray-900 dark:to-blue-950 mb-8">
+        <Card className="shadow-md border-0 rounded-2xl bg-gradient-to-r from-orange-100 to-green-50 dark:from-gray-900 dark:to-green-950 mb-8">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <FaHeadset className="text-orange-500 text-3xl" />
-              <CardTitle className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent tracking-tight">
+              <CardTitle className="text-3xl font-extrabold bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent tracking-tight">
                 Help Center
               </CardTitle>
             </div>
             <p className="text-lg text-gray-800 dark:text-gray-100">
-              Get answers, support, and resources for all your Logisti Core needs.
+              Get answers, support, and resources for all your Logisti Core
+              needs.
             </p>
           </CardHeader>
           <CardContent>
@@ -73,10 +74,14 @@ export default function HelpCenter() {
                 <Link
                   to={link.to}
                   key={i}
-                  className="block p-5 rounded-xl shadow bg-white dark:bg-gray-950 border border-orange-100 dark:border-orange-900 hover:bg-orange-50 dark:hover:bg-orange-900 transition"
+                  className="block p-5 rounded-xl shadow bg-white dark:bg-gray-950 border border-orange-100 dark:border-orange-900 bg-orange-50 dark:bg-orange-900 transition"
                 >
-                  <h3 className="font-bold text-lg text-orange-700 dark:text-orange-300 mb-2">{link.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{link.description}</p>
+                  <h3 className="font-bold text-lg text-orange-700 dark:text-orange-300 mb-2">
+                    {link.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    {link.description}
+                  </p>
                 </Link>
               ))}
             </div>
@@ -119,7 +124,21 @@ export default function HelpCenter() {
             </div>
             {/* Additional Help */}
             <div className="mt-8 text-center text-sm text-gray-700 dark:text-gray-300">
-              Need more assistance? Visit our <Link to="/contact" className="text-blue-600 dark:text-blue-400 underline">Contact Page</Link> or check our <Link to="/courier-faq" className="text-orange-600 dark:text-orange-400 underline">FAQ</Link>.
+              Need more assistance? Visit our{" "}
+              <Link
+                to="/contact"
+                className="text-blue-600 dark:text-blue-400 underline"
+              >
+                Contact Page
+              </Link>{" "}
+              or check our{" "}
+              <Link
+                to="/courier-faq"
+                className="text-orange-600 dark:text-orange-400 underline"
+              >
+                FAQ
+              </Link>
+              .
             </div>
           </CardContent>
         </Card>

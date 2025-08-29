@@ -15,7 +15,13 @@ import { useLoginMutation } from "@/redux/features/auth/auth.api";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 // Fetch credentials from .env (Vite exposes these as import.meta.env)
 const credentials = [
@@ -138,10 +144,10 @@ export function LoginForm({
               <Button
                 type="button"
                 variant="gradient"
-                className="w-full text-lg font-bold py-4 bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-600 text-white shadow-lg border-2 border-orange-400 animate-pulse"
+                className="w-full text-lg font-bold py-4 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 text-white shadow-lg border-2 border-orange-400 animate-pulse"
                 onClick={() => setOpen(true)}
               >
-                🚀 Get Credentials
+                Get Credentials
               </Button>
             </div>
           </form>

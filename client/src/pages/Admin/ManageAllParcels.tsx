@@ -41,7 +41,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { MoreHorizontal, ChevronDown, Package, Trash, XCircle, Lock, Unlock } from "lucide-react";
+import {
+  MoreHorizontal,
+  ChevronDown,
+  Package,
+  Trash,
+  XCircle,
+  Lock,
+  Unlock,
+} from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -114,18 +122,30 @@ const getStatusBadgeVariant = (status: string) => {
 
 const ManageAllParcels = () => {
   // State/hooks
-  const { data: allParcels, isLoading, isError } = useAllparcelsQuery(undefined);
+  const {
+    data: allParcels,
+    isLoading,
+    isError,
+  } = useAllparcelsQuery(undefined);
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
-  const [selectedParcel, setSelectedParcel] = React.useState<Parcel | null>(null);
+  const [selectedParcel, setSelectedParcel] = React.useState<Parcel | null>(
+    null
+  );
   const [isDetailsDialogOpen, setIsDetailsDialogOpen] = React.useState(false);
-  const [selectedParcelId, setSelectedParcelId] = React.useState<string | null>(null);
+  const [selectedParcelId, setSelectedParcelId] = React.useState<string | null>(
+    null
+  );
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
-  const [parcelToDeleteId, setParcelToDeleteId] = React.useState<string | null>(null);
-  const [deleteParcelMutation, { isLoading: isDeleting }] = useDeleteParcelMutation();
-  const { data: singleParcelData, isLoading: singleParcelLoading } = useGetSingleParcelQuery(selectedParcelId, {
-    skip: !selectedParcelId,
-  });
+  const [parcelToDeleteId, setParcelToDeleteId] = React.useState<string | null>(
+    null
+  );
+  const [deleteParcelMutation, { isLoading: isDeleting }] =
+    useDeleteParcelMutation();
+  const { data: singleParcelData, isLoading: singleParcelLoading } =
+    useGetSingleParcelQuery(selectedParcelId, {
+      skip: !selectedParcelId,
+    });
   const [blockParcelMutation] = useBlockParcelMutation();
   const [unblockParcelMutation] = useUnblockParcelMutation();
 
@@ -136,9 +156,13 @@ const ManageAllParcels = () => {
   };
 
   // Block/unblock handler
-  const handleBlockUnblock = async (parcelId: string, action: "block" | "unblock") => {
+  const handleBlockUnblock = async (
+    parcelId: string,
+    action: "block" | "unblock"
+  ) => {
     try {
-      const mutation = action === "block" ? blockParcelMutation : unblockParcelMutation;
+      const mutation =
+        action === "block" ? blockParcelMutation : unblockParcelMutation;
       const result = await mutation(parcelId).unwrap();
       toast.success(result.message);
     } catch (error) {
@@ -163,7 +187,10 @@ const ManageAllParcels = () => {
     }
   };
 
-  const tableData = React.useMemo(() => allParcels?.data?.data || [], [allParcels]);
+  const tableData = React.useMemo(
+    () => allParcels?.data?.data || [],
+    [allParcels]
+  );
 
   // Columns (inside component for access to state/handlers)
   const columns: ColumnDef<Parcel>[] = [
@@ -186,15 +213,15 @@ const ManageAllParcels = () => {
     {
       accessorKey: "sender.name",
       header: "Sender Name",
-      cell: ({ row }) => (
-        <span className="">{row.original.sender?.name}</span>
-      ),
+      cell: ({ row }) => <span className="">{row.original.sender?.name}</span>,
     },
     {
       accessorKey: "sender.email",
       header: "Sender Email",
       cell: ({ row }) => (
-        <span className="text-gray-600 dark:text-gray-300">{row.original.sender?.email}</span>
+        <span className="text-gray-600 dark:text-gray-300">
+          {row.original.sender?.email}
+        </span>
       ),
     },
     {
@@ -219,7 +246,9 @@ const ManageAllParcels = () => {
         const status = row.getValue("currentStatus") as string;
         const { backgroundColor, textColor } = getStatusBadgeVariant(status);
         return (
-          <Badge className={`font-semibold text-xs px-3 py-1 rounded-full ${backgroundColor} ${textColor}`}>
+          <Badge
+            className={`font-semibold text-xs px-3 py-1 rounded-full ${backgroundColor} ${textColor}`}
+          >
             {status}
           </Badge>
         );
@@ -252,7 +281,9 @@ const ManageAllParcels = () => {
       id: "actions",
       cell: ({ row }) => {
         const parcel = row.original;
-        const canDelete = parcel.currentStatus === "Requested" || parcel.currentStatus === "Cancelled";
+        const canDelete =
+          parcel.currentStatus === "Requested" ||
+          parcel.currentStatus === "Cancelled";
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -269,7 +300,8 @@ const ManageAllParcels = () => {
                   setIsDetailsDialogOpen(true);
                 }}
               >
-                <Package className="mr-2 h-4 w-4 text-orange-500" /> View Details
+                <Package className="mr-2 h-4 w-4 text-orange-500" /> View
+                Details
               </DropdownMenuItem>
               <DropdownMenuItem
                 onSelect={(e) => {
@@ -278,7 +310,8 @@ const ManageAllParcels = () => {
                   setIsDialogOpen(true);
                 }}
               >
-                <ChevronDown className="mr-2 h-4 w-4 text-blue-500" /> Update Status
+                <ChevronDown className="mr-2 h-4 w-4 text-blue-500" /> Update
+                Status
               </DropdownMenuItem>
               {canDelete && (
                 <DropdownMenuItem
@@ -296,20 +329,28 @@ const ManageAllParcels = () => {
               <DropdownMenuItem
                 onClick={() => handleBlockUnblock(parcel._id, "block")}
                 disabled={parcel.isBlocked}
-                className={parcel.isBlocked ? "opacity-60 cursor-not-allowed" : ""}
+                className={
+                  parcel.isBlocked ? "opacity-60 cursor-not-allowed" : ""
+                }
               >
                 <Lock className="mr-2 h-4 w-4 text-red-500" /> Block Parcel
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => handleBlockUnblock(parcel._id, "unblock")}
                 disabled={!parcel.isBlocked}
-                className={!parcel.isBlocked ? "opacity-60 cursor-not-allowed" : ""}
+                className={
+                  !parcel.isBlocked ? "opacity-60 cursor-not-allowed" : ""
+                }
               >
-                <Unlock className="mr-2 h-4 w-4 text-green-500" /> Unblock Parcel
+                <Unlock className="mr-2 h-4 w-4 text-green-500" /> Unblock
+                Parcel
               </DropdownMenuItem>
             </DropdownMenuContent>
             {/* Delete confirmation dialog (inside dropdown for focus) */}
-            <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+            <AlertDialog
+              open={isDeleteDialogOpen}
+              onOpenChange={setIsDeleteDialogOpen}
+            >
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>
@@ -317,12 +358,16 @@ const ManageAllParcels = () => {
                     Are you absolutely sure?
                   </AlertDialogTitle>
                   <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete this parcel.
+                    This action cannot be undone. This will permanently delete
+                    this parcel.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={handleDelete} disabled={isDeleting}>
+                  <AlertDialogAction
+                    onClick={handleDelete}
+                    disabled={isDeleting}
+                  >
                     {isDeleting ? "Deleting..." : "Continue"}
                   </AlertDialogAction>
                 </AlertDialogFooter>
@@ -426,7 +471,10 @@ const ManageAllParcels = () => {
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
-                    <TableHead key={header.id} className="text-base font-semibold">
+                    <TableHead
+                      key={header.id}
+                      className="text-base font-semibold"
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -444,11 +492,14 @@ const ManageAllParcels = () => {
                   <TableRow
                     key={row.id}
                     data-state={row.getIsSelected() && "selected"}
-                    className="hover:bg-orange-50/60 dark:hover:bg-orange-900/20 transition"
+                    className="bg-orange-50/60 dark:bg-orange-900/20 transition"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id} className="py-3">
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
                       </TableCell>
                     ))}
                   </TableRow>
@@ -518,7 +569,9 @@ const ManageAllParcels = () => {
           <DialogHeader>
             <div className="flex items-center gap-2 mb-2">
               <Package className="w-7 h-7 text-orange-500" />
-              <DialogTitle className="text-xl font-bold text-orange-700">Parcel Details</DialogTitle>
+              <DialogTitle className="text-xl font-bold text-orange-700">
+                Parcel Details
+              </DialogTitle>
             </div>
             <DialogDescription>
               All details for the selected parcel.
@@ -529,40 +582,76 @@ const ManageAllParcels = () => {
           ) : singleParcel ? (
             <div className="space-y-4 pt-2">
               <div className="flex flex-row gap-2 items-center">
-                <span className="font-semibold text-gray-600 dark:text-gray-200">Tracking ID:</span>
-                <span className="text-base font-mono rounded bg-gray-100 dark:bg-gray-800 px-2">{singleParcel.trackingId}</span>
+                <span className="font-semibold text-gray-600 dark:text-gray-200">
+                  Tracking ID:
+                </span>
+                <span className="text-base font-mono rounded bg-gray-100 dark:bg-gray-800 px-2">
+                  {singleParcel.trackingId}
+                </span>
               </div>
               <div className="flex flex-row gap-2 items-center">
-                <span className="font-semibold text-gray-600 dark:text-gray-200">Status:</span>
-                <Badge className={`${singleParcelStatusColors.backgroundColor} ${singleParcelStatusColors.textColor}`}>
+                <span className="font-semibold text-gray-600 dark:text-gray-200">
+                  Status:
+                </span>
+                <Badge
+                  className={`${singleParcelStatusColors.backgroundColor} ${singleParcelStatusColors.textColor}`}
+                >
                   {singleParcel.currentStatus}
                 </Badge>
               </div>
               <div className="flex flex-row gap-2 items-center">
-                <span className="font-semibold text-gray-600 dark:text-gray-200">Parcel Type:</span>
+                <span className="font-semibold text-gray-600 dark:text-gray-200">
+                  Parcel Type:
+                </span>
                 <span>{singleParcel.parcelType}</span>
               </div>
               <div className="flex flex-row gap-2 items-center">
-                <span className="font-semibold text-gray-600 dark:text-gray-200">Weight:</span>
+                <span className="font-semibold text-gray-600 dark:text-gray-200">
+                  Weight:
+                </span>
                 <span>{singleParcel.weight} kg</span>
               </div>
               <div className="flex flex-row gap-2 items-center">
-                <span className="font-semibold text-gray-600 dark:text-gray-200">Delivery Address:</span>
+                <span className="font-semibold text-gray-600 dark:text-gray-200">
+                  Delivery Address:
+                </span>
                 <span>{singleParcel.deliveryAddress}</span>
               </div>
               <DropdownMenuSeparator />
-              <h4 className="font-semibold mt-4 text-orange-700 dark:text-orange-300">Sender Details</h4>
+              <h4 className="font-semibold mt-4 text-orange-700 dark:text-orange-300">
+                Sender Details
+              </h4>
               <div className="flex flex-col gap-1 ml-2">
-                <span><span className="font-semibold">Name:</span> {singleParcel.sender?.name}</span>
-                <span><span className="font-semibold">Email:</span> {singleParcel.sender?.email}</span>
+                <span>
+                  <span className="font-semibold">Name:</span>{" "}
+                  {singleParcel.sender?.name}
+                </span>
+                <span>
+                  <span className="font-semibold">Email:</span>{" "}
+                  {singleParcel.sender?.email}
+                </span>
               </div>
               <DropdownMenuSeparator />
-              <h4 className="font-semibold mt-4 text-orange-700 dark:text-orange-300">Receiver Details</h4>
+              <h4 className="font-semibold mt-4 text-orange-700 dark:text-orange-300">
+                Receiver Details
+              </h4>
               <div className="flex flex-col gap-1 ml-2">
-                <span><span className="font-semibold">Name:</span> {singleParcel.receiver?.name}</span>
-                <span><span className="font-semibold">Email:</span> {singleParcel.receiver?.email}</span>
-                <span><span className="font-semibold">Phone:</span> {singleParcel.receiver?.phone}</span>
-                <span><span className="font-semibold">Address:</span> {singleParcel.receiver?.address}</span>
+                <span>
+                  <span className="font-semibold">Name:</span>{" "}
+                  {singleParcel.receiver?.name}
+                </span>
+                <span>
+                  <span className="font-semibold">Email:</span>{" "}
+                  {singleParcel.receiver?.email}
+                </span>
+                <span>
+                  <span className="font-semibold">Phone:</span>{" "}
+                  {singleParcel.receiver?.phone}
+                </span>
+                <span>
+                  <span className="font-semibold">Address:</span>{" "}
+                  {singleParcel.receiver?.address}
+                </span>
               </div>
             </div>
           ) : (

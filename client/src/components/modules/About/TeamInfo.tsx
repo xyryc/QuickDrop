@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import React, { useState } from "react";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 // Palette
 const COLORS = {
@@ -14,54 +14,64 @@ const teamMembers = [
   {
     name: "Bushra",
     role: "Chairman",
-    avatar: "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/fatema.jpg?raw=true",
+    avatar:
+      "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/fatema.jpg?raw=true",
     bio: "Bushra has over 15 years of experience in logistics and is passionate about solving delivery challenges.",
   },
   {
     name: "Md. Nazmus Sakib",
     role: "Chief Executive Officer",
-    avatar: "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/sakib.jpg?raw=true",
+    avatar:
+      "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/sakib.jpg?raw=true",
     bio: "Md. Nazmus Sakib manages our entire delivery network, ensuring every parcel is handled with care and efficiency.",
   },
   {
     name: "MN Shafin",
     role: "Chief Technology Officer",
-    avatar: "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/shafin.jpg?raw=true",
+    avatar:
+      "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/shafin.jpg?raw=true",
     bio: "Mahamodon Nabi Shafin is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
   {
     name: "UT MIM",
     role: "Chief Operating Officer",
-    avatar: "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/umaiya.jpg?raw=true",
+    avatar:
+      "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/umaiya.jpg?raw=true",
     bio: "UT MIM is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
   {
     name: "Mohammad Anik",
     role: "Head Of Logistics",
-    avatar: "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/anik.jpg?raw=true",
+    avatar:
+      "https://github.com/engrsakib/LogistiCore-a-percel-booking/blob/clientDev/client/public/anik.jpg?raw=true",
     bio: "Mohammad Anik is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
   {
     name: "Sumiaya K Afra",
     role: "Head Of Marketing",
-    avatar: "https://abayaandgown.com/wp-content/uploads/2023/08/Borkha-Unlimited-Hijab1.jpg",
+    avatar:
+      "https://abayaandgown.com/wp-content/uploads/2023/08/Borkha-Unlimited-Hijab1.jpg",
     bio: "Sumiaya K Afra is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
   {
     name: "Arif Hossina khan",
     role: "Head of HR and Administration",
-    avatar: "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg",
+    avatar:
+      "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg",
     bio: "Arif Hossina khan is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
   {
     name: "Rafya Islam arman",
     role: "Head of IT",
-    avatar: "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?semt=ais_hybrid&w=740&q=80",
+    avatar:
+      "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?semt=ais_hybrid&w=740&q=80",
     bio: "Rafya Islam arman is the mastermind behind our advanced tracking system and user-friendly web platform.",
   },
 ];
 
-const TeamCard: React.FC<{ member: typeof teamMembers[0] }> = ({ member }) => {
+const TeamCard: React.FC<{ member: (typeof teamMembers)[0] }> = ({
+  member,
+}) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -70,11 +80,15 @@ const TeamCard: React.FC<{ member: typeof teamMembers[0] }> = ({ member }) => {
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       tabIndex={0}
-      style={{ outline: 'none' }}
+      style={{ outline: "none" }}
     >
-      <div className={`relative w-full h-80 transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
+      <div
+        className={`relative w-full h-80 transition-transform duration-700 [transform-style:preserve-3d] ${
+          isFlipped ? "[transform:rotateY(180deg)]" : ""
+        }`}
+      >
         {/* Front Side */}
-        <Card className="absolute w-full h-full flex flex-col items-center justify-center p-8 text-center shadow-2xl border-0 bg-white/95 dark:bg-[#24252A]/90 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-3xl overflow-visible [backface-visibility:hidden]">
+        <Card className="absolute w-full h-full flex flex-col items-center justify-center p-8 text-center shadow-2xl border-0 bg-white/95 dark:bg-[#24252A]/90 rounded-2xl transition-all duration-300 scale-105 shadow-3xl overflow-visible [backface-visibility:hidden]">
           <Avatar className="h-24 w-24 mb-6 ring-4 ring-[#FF771A]/30 shadow-lg">
             <AvatarImage src={member.avatar} alt={member.name} />
             <AvatarFallback className="text-3xl font-bold text-[#FF771A] bg-[#FFB877]/40">

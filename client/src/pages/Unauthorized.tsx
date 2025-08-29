@@ -34,7 +34,7 @@ const Unauthorized = () => {
         <CardContent className="mt-8">
           <Button
             asChild
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 via-orange-400 to-red-400 text-white font-semibold rounded-full py-4 shadow-lg hover:from-orange-400 hover:to-red-500 transition-all duration-300"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 via-orange-400 to-red-400 text-white font-semibold rounded-full py-4 shadow-lg from-orange-400 to-red-500 transition-all duration-300"
           >
             <Link to="/">
               <Home className="w-5 h-5" /> Go to Home Page

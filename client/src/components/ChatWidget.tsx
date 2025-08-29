@@ -32,7 +32,11 @@ function getBotReply(userMsg: string): string {
   ) {
     return "📝 You can register quickly by clicking the 'Get Started' or 'Register' button on our homepage.";
   }
-  if (msg.includes("contact") || msg.includes("help") || msg.includes("support")) {
+  if (
+    msg.includes("contact") ||
+    msg.includes("help") ||
+    msg.includes("support")
+  ) {
     return "☎️ You can contact our support team via email (support@logisticore.com) or call +88 01234 567 89.";
   }
   if (
@@ -96,7 +100,7 @@ export default function ChatWidget() {
         {!open && (
           <Button
             size="icon"
-            className="rounded-full w-16 h-16 shadow-lg bg-gradient-to-br from-orange-500 to-blue-500 text-white hover:scale-105 transition-all"
+            className="rounded-full w-16 h-16 shadow-lg bg-gradient-to-br from-orange-500 to-green-500 text-white scale-105 transition-all"
             aria-label="Open chat"
             onClick={() => setOpen(true)}
           >
@@ -109,13 +113,13 @@ export default function ChatWidget() {
       {open && (
         <div className="fixed bottom-6 right-6 z-50 w-80 max-w-[96vw] bg-white dark:bg-gray-950 rounded-xl shadow-xl border border-orange-100 dark:border-orange-900 flex flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-orange-100 dark:border-orange-900 bg-gradient-to-r from-orange-100 to-blue-50 dark:from-gray-900 dark:to-blue-950 rounded-t-xl">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-orange-100 dark:border-orange-900 bg-gradient-to-r from-orange-100 to-green-50 dark:from-gray-900 dark:to-green-950 rounded-t-xl">
             <span className="font-bold text-orange-700 dark:text-orange-300 flex items-center gap-2">
               {/* Icon size changed from default to w-7 h-7 */}
               <FaComments className="w-7 h-7" /> Chat Support
             </span>
             <button
-              className="text-2xl text-gray-500 hover:text-orange-500 transition"
+              className="text-2xl text-gray-500 text-orange-500 transition"
               onClick={() => setOpen(false)}
               aria-label="Close chat"
             >
@@ -132,7 +136,9 @@ export default function ChatWidget() {
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
               >
                 <div
                   className={`px-3 py-2 rounded-lg text-sm max-w-[80%] whitespace-pre-line
@@ -148,7 +154,7 @@ export default function ChatWidget() {
             ))}
           </div>
           {/* Input */}
-          <div className="px-4 py-3 border-t border-orange-100 dark:border-orange-900 bg-gradient-to-r from-orange-50 to-blue-50 dark:from-gray-900 dark:to-blue-950 rounded-b-xl">
+          <div className="px-4 py-3 border-t border-orange-100 dark:border-orange-900 bg-gradient-to-r from-orange-50 to-green-50 dark:from-gray-900 dark:to-green-950 rounded-b-xl">
             <div className="flex gap-2 items-center">
               <Input
                 ref={inputRef}
@@ -163,7 +169,7 @@ export default function ChatWidget() {
               <Button
                 size="icon"
                 onClick={handleSend}
-                className="rounded-full bg-orange-500 text-white hover:bg-orange-600 transition"
+                className="rounded-full bg-orange-500 text-white bg-orange-600 transition"
                 aria-label="Send"
               >
                 {/* Icon size changed from w-4 h-4 to w-7 h-7 */}

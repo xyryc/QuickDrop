@@ -62,14 +62,18 @@ const columns: ColumnDef<User>[] = [
     accessorKey: "name",
     header: "Name",
     cell: ({ row }) => (
-      <span className="font-semibold text-gray-800 dark:text-gray-200">{row.original.name}</span>
+      <span className="font-semibold text-gray-800 dark:text-gray-200">
+        {row.original.name}
+      </span>
     ),
   },
   {
     accessorKey: "email",
     header: "Email",
     cell: ({ row }) => (
-      <span className="text-gray-600 dark:text-gray-300">{row.original.email}</span>
+      <span className="text-gray-600 dark:text-gray-300">
+        {row.original.email}
+      </span>
     ),
   },
   {
@@ -85,7 +89,10 @@ const columns: ColumnDef<User>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => (
-      <Badge className="px-2 py-1 text-sm" variant={getStatusBadgeVariant(row.original.status)}>
+      <Badge
+        className="px-2 py-1 text-sm"
+        variant={getStatusBadgeVariant(row.original.status)}
+      >
         {row.original.status}
       </Badge>
     ),
@@ -106,7 +113,8 @@ const columns: ColumnDef<User>[] = [
           await changeUserStatus(payload).unwrap();
           toast.success(`User ${user.name} status updated to ${newStatus}`);
         } catch (error) {
-          const errorMessage = error?.data?.message || "Failed to update user status.";
+          const errorMessage =
+            error?.data?.message || "Failed to update user status.";
           toast.error(errorMessage);
         }
       };
@@ -238,7 +246,10 @@ const ManageAllUsers = () => {
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
-                      <TableHead key={header.id} className="text-base font-semibold whitespace-nowrap">
+                      <TableHead
+                        key={header.id}
+                        className="text-base font-semibold whitespace-nowrap"
+                      >
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -256,11 +267,17 @@ const ManageAllUsers = () => {
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
-                      className="hover:bg-orange-50/60 dark:hover:bg-orange-900/20 transition"
+                      className="bg-orange-50/60 dark:bg-orange-900/20 transition"
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id} className="py-3 whitespace-nowrap">
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        <TableCell
+                          key={cell.id}
+                          className="py-3 whitespace-nowrap"
+                        >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
                         </TableCell>
                       ))}
                     </TableRow>

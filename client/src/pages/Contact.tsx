@@ -1,13 +1,26 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 // Palette based on #FF771A (Main Orange)
 const COLORS = {
@@ -20,7 +33,9 @@ const COLORS = {
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -53,7 +68,8 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="max-w-2xl mx-auto text-[#24252A]/80 dark:text-white/80 mt-4 text-lg font-medium">
-            Have a question or need assistance? Send us a message and we'll get back to you as soon as possible.
+            Have a question or need assistance? Send us a message and we'll get
+            back to you as soon as possible.
           </p>
         </div>
 
@@ -72,24 +88,42 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="p-0 space-y-8">
               <div className="flex items-center space-x-4">
-                <span className="bg-[#FFB877]/60 p-3 rounded-full"><MapPin className="h-6 w-6 text-[#FF771A]" /></span>
+                <span className="bg-[#FFB877]/60 p-3 rounded-full">
+                  <MapPin className="h-6 w-6 text-[#FF771A]" />
+                </span>
                 <div>
-                  <p className="font-semibold text-[#24252A] dark:text-white">Address</p>
-                  <p className="text-[#24252A]/70 dark:text-white/70">123 Main Street, Dhaka, Bangladesh</p>
+                  <p className="font-semibold text-[#24252A] dark:text-white">
+                    Address
+                  </p>
+                  <p className="text-[#24252A]/70 dark:text-white/70">
+                    123 Main Street, Dhaka, Bangladesh
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <span className="bg-[#FFB877]/60 p-3 rounded-full"><Mail className="h-6 w-6 text-[#FF771A]" /></span>
+                <span className="bg-[#FFB877]/60 p-3 rounded-full">
+                  <Mail className="h-6 w-6 text-[#FF771A]" />
+                </span>
                 <div>
-                  <p className="font-semibold text-[#24252A] dark:text-white">Email</p>
-                  <p className="text-[#24252A]/70 dark:text-white/70">{import.meta.env.VITE_USER_CONTACT_MAIL}</p>
+                  <p className="font-semibold text-[#24252A] dark:text-white">
+                    Email
+                  </p>
+                  <p className="text-[#24252A]/70 dark:text-white/70">
+                    {import.meta.env.VITE_USER_CONTACT_MAIL}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <span className="bg-[#FFB877]/60 p-3 rounded-full"><Phone className="h-6 w-6 text-[#FF771A]" /></span>
+                <span className="bg-[#FFB877]/60 p-3 rounded-full">
+                  <Phone className="h-6 w-6 text-[#FF771A]" />
+                </span>
                 <div>
-                  <p className="font-semibold text-[#24252A] dark:text-white">Phone</p>
-                  <p className="text-[#24252A]/70 dark:text-white/70">{import.meta.env.VITE_USER_CONTACT_PHONE}</p>
+                  <p className="font-semibold text-[#24252A] dark:text-white">
+                    Phone
+                  </p>
+                  <p className="text-[#24252A]/70 dark:text-white/70">
+                    {import.meta.env.VITE_USER_CONTACT_PHONE}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -109,13 +143,18 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="p-0">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-5"
+                >
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#FF771A] font-semibold">Name</FormLabel>
+                        <FormLabel className="text-[#FF771A] font-semibold">
+                          Name
+                        </FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your Name"
@@ -132,7 +171,9 @@ const Contact = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#FF771A] font-semibold">Email</FormLabel>
+                        <FormLabel className="text-[#FF771A] font-semibold">
+                          Email
+                        </FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your Email"
@@ -149,7 +190,9 @@ const Contact = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#FF771A] font-semibold">Message</FormLabel>
+                        <FormLabel className="text-[#FF771A] font-semibold">
+                          Message
+                        </FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Your Message"
@@ -163,7 +206,7 @@ const Contact = () => {
                   />
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#FF771A] via-[#FFB877] to-[#FFE2C6] text-white font-bold rounded-full py-4 px-10 text-lg shadow-lg hover:from-[#FFE2C6] hover:via-[#FF771A] hover:to-[#FFB877] transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-[#FF771A] via-[#FFB877] to-[#FFE2C6] text-white font-bold rounded-full py-4 px-10 text-lg shadow-lg from-[#FFE2C6] via-[#FF771A] to-[#FFB877] transition-all duration-300"
                   >
                     Send Message
                   </Button>

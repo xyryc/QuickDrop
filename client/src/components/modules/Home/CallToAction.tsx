@@ -33,8 +33,8 @@ const CallToAction: React.FC<CallToActionProps> = ({
           <div className="hidden md:block absolute -bottom-24 -right-16 w-48 h-48 border-[10px] border-[#FFB877]/30 rounded-full animate-ping"></div>
 
           {/* Headline + subtext */}
-          <CardHeader className="p-0 mb-10 md:mb-0 md:text-left flex-1 z-10 text-center md:text-left">
-            <CardTitle className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#FF771A] drop-shadow-lg">
+          <CardHeader className="p-0 mb-10 md:mb-0 flex-1 z-10 text-center md:text-left">
+            <CardTitle className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#FF771A]">
               {headline}
             </CardTitle>
             <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0">
@@ -48,7 +48,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
               asChild
               size="lg"
               className="px-10 py-5 md:px-14 md:py-6 text-lg md:text-xl font-bold rounded-full shadow-lg bg-gradient-to-r from-[#FF771A] via-[#FFB877] to-[#FFE2C6] text-white border-0 
-                hover:scale-105 hover:shadow-[0_0_20px_#FF771A] transition-all duration-300"
+                scale-105 shadow-[0_0_20px_#FF771A] transition-all duration-300"
             >
               <Link to={buttonLink}>{buttonText}</Link>
             </Button>

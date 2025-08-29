@@ -102,7 +102,7 @@ export default function Navbar() {
                         className={`block px-4 py-2 rounded-lg font-medium transition-all ${
                           isLinkActive(link.href)
                             ? "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300"
-                            : "hover:bg-blue-50 dark:hover:bg-blue-950/40 text-gray-700 dark:text-gray-200"
+                            : "bg-blue-50 dark:bg-blue-950/40 text-gray-700 dark:text-gray-200"
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -150,7 +150,7 @@ export default function Navbar() {
                 ></path>
               </svg>
             </span>
-            <span className="font-bold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-green-700 to-green-400 bg-clip-text text-transparent dark:from-blue-300 dark:to-green-500">
+            <span className="font-bold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-green-700 to-green-400 bg-clip-text text-transparent dark:from-green-300 dark:to-green-500">
               QuickDrop
             </span>
           </Link>
@@ -165,7 +165,7 @@ export default function Navbar() {
                     className={`px-3 py-2 rounded-lg font-medium transition-all ${
                       isLinkActive(link.href)
                         ? "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300"
-                        : "text-muted-foreground hover:bg-blue-50 dark:text-gray-200 dark:hover:bg-blue-950/40"
+                        : "text-muted-foreground bg-blue-50 dark:text-gray-200 dark:bg-blue-950/40"
                     }`}
                   >
                     <Link to={link.href}>{link.label}</Link>

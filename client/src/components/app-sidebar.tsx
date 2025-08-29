@@ -14,7 +14,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { getSidebarItems } from "@/utils/getSidebarItems";
-import { useUserInfoQuery, useLogoutMutation, authApi } from "@/redux/features/auth/auth.api";
+import {
+  useUserInfoQuery,
+  useLogoutMutation,
+  authApi,
+} from "@/redux/features/auth/auth.api";
 import { useAppDispatch } from "@/redux/hook";
 import toast from "react-hot-toast";
 
@@ -55,21 +59,31 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <span className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-orange-700 shadow">
               {/* Abstract "L" icon with similar color */}
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="16" r="16" fill="url(#logistiCoreGradient)" />
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="16"
+                  fill="url(#logistiCoreGradient)"
+                />
                 <defs>
-                  <linearGradient id="logistiCoreGradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <linearGradient
+                    id="logistiCoreGradient"
+                    x1="0"
+                    y1="0"
+                    x2="32"
+                    y2="32"
+                    gradientUnits="userSpaceOnUse"
+                  >
                     <stop stopColor="#FFD600" />
                     <stop offset="1" stopColor="#FF4D00" />
                   </linearGradient>
                 </defs>
-                <path
-                  d="M8 8 L24 8 Q24 16 16 24 L8 24 Z"
-                  fill="#FF4D00"
-                />
+                <path d="M8 8 L24 8 Q24 16 16 24 L8 24 Z" fill="#FF4D00" />
                 <rect x="8" y="17" width="8" height="7" fill="#FF4D00" />
               </svg>
             </span>
-            <span className="text-2xl font-extrabold tracking-tight"
+            <span
+              className="text-2xl font-extrabold tracking-tight"
               style={{
                 background: "linear-gradient(90deg, #1976ED 60%, #3A8DFF 100%)",
                 WebkitBackgroundClip: "text",
@@ -96,9 +110,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       asChild
                       isActive={subItem.isActive}
                       className={`w-full text-left px-4 py-2 rounded-lg font-medium transition 
-                        ${subItem.isActive
-                          ? "bg-orange-100 dark:bg-orange-800 text-orange-700 dark:text-orange-200 shadow"
-                          : "hover:bg-orange-50 dark:hover:bg-orange-900 hover:text-orange-700 dark:hover:text-orange-200"}
+                        ${
+                          subItem.isActive
+                            ? "bg-orange-100 dark:bg-orange-800 text-orange-700 dark:text-orange-200 shadow"
+                            : "bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-200"
+                        }
                       `}
                     >
                       <Link to={subItem.url}>{subItem.title}</Link>
@@ -118,7 +134,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Button
           onClick={handleLogout}
           disabled={isLoading}
-          className="w-full py-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-700 text-white font-semibold shadow-lg hover:scale-105 hover:from-orange-600 hover:to-orange-800 transition-all duration-150 active:scale-95"
+          className="w-full py-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-700 text-white font-semibold shadow-lg scale-105 from-orange-600 to-orange-800 transition-all duration-150 active:scale-95"
         >
           {isLoading ? "Logging out..." : "Logout"}
         </Button>

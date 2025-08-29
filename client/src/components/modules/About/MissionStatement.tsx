@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Target, Lightbulb, TrendingUp } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Target, Lightbulb, TrendingUp } from "lucide-react";
 
 // Palette based on #FF771A (Main Orange)
 const COLORS = {
@@ -46,18 +46,20 @@ const MissionStatement = () => {
           <CardContent className="p-0 grid md:grid-cols-3 gap-12">
             {items.map((item, i) => (
               <div
-                className="relative flex flex-col items-center md:items-start text-center md:text-left px-4 py-6 bg-white/0 dark:bg-[#24252A]/0 rounded-xl group transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className="relative flex flex-col items-center md:items-start text-center md:text-left px-4 py-6 bg-white/0 dark:bg-[#24252A]/0 rounded-xl group transition-all duration-300 scale-105 shadow-xl"
                 key={i}
               >
                 {/* Card blob effect */}
                 <div
-                  className="absolute -top-6 -right-8 w-16 h-16 rounded-full blur-xl pointer-events-none transition-all duration-500 group-hover:scale-125"
+                  className="absolute -top-6 -right-8 w-16 h-16 rounded-full blur-xl pointer-events-none transition-all duration-500 group-scale-125"
                   style={{ background: item.blob }}
                 ></div>
                 <span className="rounded-full p-5 border-2 border-[#FFB877] bg-[#FF771A]/10 shadow animate-cardPulse mb-4">
                   {item.icon}
                 </span>
-                <h3 className="text-2xl font-extrabold mb-2 text-[#FF771A] drop-shadow">{item.title}</h3>
+                <h3 className="text-2xl font-extrabold mb-2 text-[#FF771A] drop-shadow">
+                  {item.title}
+                </h3>
                 <p className="text-[#24252A]/80 dark:text-white/80 text-base font-medium min-h-[60px] flex items-center justify-center">
                   {item.desc}
                 </p>
