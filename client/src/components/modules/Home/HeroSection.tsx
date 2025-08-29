@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Decorative Blobs */}
         <div className="relative w-[400px] h-[400px] lg:w-[600px] lg:h-[600px]">
           <span className="absolute top-0 left-0 w-40 h-40 bg-green-400/40 rounded-full blur-2xl animate-pulse"></span>
-          <span className="absolute bottom-10 right-10 w-32 h-32 bg-pink-400/40 rounded-full blur-2xl animate-pulse"></span>
+          <span className="absolute bottom-10 right-10 w-32 h-32 bg-green-400/40 rounded-full blur-2xl animate-pulse"></span>
           <span className="absolute bottom-0 left-1/2 w-16 h-16 bg-yellow-400/30 rounded-full blur-xl animate-pulse"></span>
         </div>
       </div>
@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-20 max-w-3xl w-full px-6 py-10 md:py-24 flex flex-col items-center">
         <h1
           className={cn(
-            "text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 bg-gradient-to-r from-green-300 via-white to-green-500 bg-clip-text text-transparent drop-shadow-lg transition-all duration-1000",
+            "text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 bg-gradient-to-r from-green-300  to-green-500 bg-clip-text text-transparent drop-shadow-lg transition-all duration-1000",
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
@@ -66,7 +66,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <Button
           asChild
           className={cn(
-            "px-8 py-3 md:px-12 md:py-6 text-lg md:text-xl font-semibold rounded-full shadow-2xl bg-gradient-to-r from-green-600 via-green-400 to-green-600 text-white transition-all duration-300 hover:scale-110 hover:shadow-3xl hover:bg-gradient-to-l hover:from-pink-500 hover:via-green-500 hover:to-yellow-400 focus:ring-4 focus:ring-green-200",
+            "px-8 py-3 md:px-12 md:py-6 text-lg md:text-xl font-semibold rounded-full shadow-2xl bg-gradient-to-r text-white transition-all duration-300 focus:ring-4 focus:ring-green-200",
             "border-2 border-white/30 backdrop-blur-md",
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
