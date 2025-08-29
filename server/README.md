@@ -1,25 +1,11 @@
 # 📦 Parcel Delivery System API
 
-**Developer:** Md. Nazmus Sakib
-
----
 
 ## 🌟 Project Overview
 
 Parcel Delivery System API is a robust and secure backend application designed to handle all operations of a modern courier service. The platform offers a seamless and efficient way for users to register as senders or receivers, create parcel requests, and track their delivery status in real-time. Admins have complete control over user management and delivery status updates, ensuring a streamlined operation.
 
----
-
 ## 🛠️ Technology Stack
-
-[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white&style=for-the-badge)](https://expressjs.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white&style=for-the-badge)](https://www.typescriptlang.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?logo=mongodb&logoColor=white&style=for-the-badge)](https://mongodb.com/)
-[![Mongoose](https://img.shields.io/badge/Mongoose-880000?logo=mongoose&logoColor=white&style=for-the-badge)](https://mongoosejs.com/)
-[![JWT](https://img.shields.io/badge/JWT-black?logo=jsonwebtokens&logoColor=white&style=for-the-badge)](https://jwt.io/)
-[![bcrypt](https://img.shields.io/badge/Bcrypt-00599C?logo=github&logoColor=white&style=for-the-badge)](https://github.com/kelektiv/node.bcrypt.js)
-[![Zod](https://img.shields.io/badge/Zod-3E6B8A?logo=zod&logoColor=white&style=for-the-badge)](https://zod.dev/)
 
 - **Runtime:** Node.js
 - **Framework:** Express.js
@@ -48,8 +34,8 @@ Parcel Delivery System API is a robust and secure backend application designed t
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/engrsakib/LogistiCore-a-percel-booking.git
-cd parcel-delivery-system
+git clone https://github.com/xyryc/QuickDrop.git
+cd quickdrop
 ```
 
 #### 2. Install Dependencies
@@ -222,8 +208,9 @@ This Parcel Delivery API is built for real-world production use.
 
 ## 👨‍💻 Developer
 
-**Md. Nazmus Sakib**  
-🌐 [GitHub](https://github.com/engrsakib)  
-💼 [LinkedIn](https://www.linkedin.com/in/engrsakib/)
+**Md Talath Un Nabi (Anik)**
+
+- 🌐 GitHub: [xyryc](https://github.com/xyryc)
+- 💼 LinkedIn: [Md Talath Un Nabi](https://www.linkedin.com/in/md-talath-un-nabi/)
 
 ---

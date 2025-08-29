@@ -141,15 +141,6 @@ export default function Navbar() {
             </PopoverContent>
           </Popover>
           <Link to={"/"} className="flex items-center gap-2">
-            {/* Modern logo style */}
-            <span className="rounded-full bg-gradient-to-br from-orange-400 via-yellow-300 to-green-400 p-1">
-              <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
-                <path
-                  d="M30 28V12C30 10.8954 29.1046 10 28 10H27.8994C27.369 10 26.8604 10.2109 26.4854 10.5859L10.5859 26.4854C10.2109 26.8604 10 27.369 10 27.8994V40H0V27.8994C2.15312e-05 24.7168 1.26423 21.6645 3.51465 19.4141L19.4141 3.51465C21.6645 1.26423 24.7168 2.1373e-05 27.8994 0H28C34.6274 0 40 5.37258 40 12V28C40 34.6274 34.6274 40 28 40H14V30H28C29.1046 30 30 29.1046 30 28Z M0 0H17L7 10H0V0Z"
-                  fill="#FF4D00"
-                ></path>
-              </svg>
-            </span>
             <span className="font-bold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-green-700 to-green-400 bg-clip-text text-transparent dark:from-green-300 dark:to-green-500">
               QuickDrop
             </span>
